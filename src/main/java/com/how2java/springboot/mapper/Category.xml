@@ -4,7 +4,24 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
     <mapper namespace="com.how2java.springboot.mapper.CategoryMapper">
-        <select id="findAll" resultType="Category">
+  <!--     <select id="findAll" resultType="Category">
             select * from category_ 
-        </select>    
-    </mapper>
+        </select>
+   -->
+    <insert id="save" >
+            insert into category_ ( name ) values (#{name})
+        </insert>
+
+    <delete id="delete" >
+            delete from category_ where id= #{id}
+        </delete>
+
+    <select id="get" resultType="Category">
+            select * from category_ where id= #{id}
+        </select>
+
+    <update id="update" >
+            update category_ set name=#{name} where id=#{id}
+        </update>
+
+</mapper>
